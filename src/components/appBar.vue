@@ -1,48 +1,67 @@
 <template>
     <div>
         <v-app-bar
-                color="deep-purple accent-4"
+                color="#fff159"
                 dense
-                dark
+                flat
+                height="100"
         >
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-            <v-toolbar-title>Page title</v-toolbar-title>
-
-            <v-spacer></v-spacer>
-
-            <v-btn icon>
-                <v-icon>mdi-heart</v-icon>
-            </v-btn>
-
-            <v-btn icon>
-                <v-icon>mdi-magnify</v-icon>
-            </v-btn>
-
-            <v-menu
-                    left
-                    bottom
+          <v-container>
+          <v-row no-gutters class="mt-10">
+            <v-col cols="2"
+                   class="pr-5"
             >
-                <template v-slot:activator="{ on, attrs }">
-                    <v-btn
-                            icon
-                            v-bind="attrs"
-                            v-on="on"
-                    >
-                        <v-icon>mdi-dots-vertical</v-icon>
-                    </v-btn>
-                </template>
+              <v-img class="float-right" src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.16.2/mercadolibre/logo__large_plus@2x.png" max-width="134" max-height="34"></v-img>
+            </v-col>
+            <v-col cols="5"
+                   class="pl-15"
+            >
+              <v-text-field
+                  solo
+                  label="Buscar productos, marcas y más..."
+                  append-icon="mdi-magnify"
+              ></v-text-field>
 
-                <v-list>
-                    <v-list-item
-                            v-for="n in 5"
-                            :key="n"
-                            @click="() => {}"
-                    >
-                        <v-list-item-title>Option {{ n }}</v-list-item-title>
-                    </v-list-item>
-                </v-list>
-            </v-menu>
+            </v-col>
+            <v-col cols="5">
+              <v-img class="float-left" src="https://http2.mlstatic.com/D_NQ_842112-MLA48003970725_102021-OO.webp" max-width="340" max-height="39"></v-img>
+            </v-col>
+          </v-row >
+          <v-row no-gutters>
+            <v-col cols="2">
+            <v-btn icon>
+              <v-icon dark right>
+                 mdi-map-marker
+              </v-icon>Enviar a
+              Lima Metropolitana
+            </v-btn>
+
+            </v-col>
+            <v-col cols="5">
+              <v-toolbar-items >
+                    <v-list-tile-title>Categoria</v-list-tile-title>
+                    <v-list-tile-title>Ofertas</v-list-tile-title>
+                    <v-list-tile-title>Historial</v-list-tile-title>
+                    <v-list-tile-title>Tiendas Oficiales</v-list-tile-title>
+                    <v-list-tile-title>Vender</v-list-tile-title>
+                    <v-list-tile-title>Ayuda</v-list-tile-title>
+              </v-toolbar-items>
+
+
+            </v-col>
+            <v-col cols="5">
+
+            </v-col>
+           </v-row>
+          </v-container>
         </v-app-bar>
     </div>
 </template>
+
+
+<script>
+        export default {
+          name : 'homeView',
+
+}
+</script>

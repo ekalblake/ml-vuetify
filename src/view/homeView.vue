@@ -1,6 +1,5 @@
 <template>
         <app-bar/>
-
 </template>
 <script>
     import appBar from '../components/appBar.vue'

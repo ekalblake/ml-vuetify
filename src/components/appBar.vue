@@ -53,18 +53,18 @@
             </v-col>
             <v-col cols="7" >
               <v-card
-                  class="mx-auto pt-2"
+                  class="mx-auto"
                   tile
                   style="background: none !important; border: none; box-shadow: none;"
               >
-                <v-list-item style="color:rgba(51,51,51,.6);">
-                    <v-list-item-content>Categoria </v-list-item-content>
-                    <v-list-item-content>Ofertas</v-list-item-content>
-                    <v-list-item-content>Historial</v-list-item-content>
-                    <v-list-item-content>Tiendas Oficiales</v-list-item-content>
-                    <v-list-item-content>Vender</v-list-item-content>
-                    <v-list-item-content>Ayuda</v-list-item-content>
-                </v-list-item>
+                <v-card-text style="font-size:13px;display: flex; gap: 30px; float-right; padding: 0; padding-top : 16px;">
+                    <a>Categoria </a>
+                    <a>Ofertas</a>
+                    <a>Historial</a>
+                    <a>Tiendas Oficiales</a>
+                    <a>Vender</a>
+                    <a>Ayuda</a>
+                </v-card-text>
 
               </v-card>
 
@@ -72,15 +72,15 @@
             </v-col>
             <v-col cols="3">
               <v-card
-                  class="justify-space-around"
+
                   tile
-                  style="background: none !important; box-shadow: none; "
+                  style="background: none !important; box-shadow: none; float:right; "
               >
-                <v-list-item>
-                  <v-list-item-content>Crea tu cuenta</v-list-item-content>
-                  <v-list-item-content>Ingresa</v-list-item-content>
-                  <v-list-item-content>Mis compras</v-list-item-content>
-                </v-list-item>
+                <v-card-text style="font-size:13px;display: flex; gap: 20px; padding:0; padding-top:15px">
+                  <a>Crea tu cuenta</a>
+                  <a>Ingresa</a>
+                  <a>Mis compras</a>
+                </v-card-text>
 
               </v-card>
             </v-col>

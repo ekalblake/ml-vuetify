@@ -6,6 +6,7 @@
                 flat
                 height="100"
         >
+
           <v-container
               style="font-size:13px;"
           >
@@ -25,12 +26,12 @@
               ></v-text-field>
 
             </v-col>
-            <v-col cols="4">
+            <v-col cols="4" class="d-none d-md-block">
               <v-img class="float-right" src="https://http2.mlstatic.com/D_NQ_684485-MLA47533161749_092021-OO.webp" max-width="340" max-height="39"></v-img>
             </v-col>
           </v-row >
 
-          <v-row no-gutters>
+          <v-row no-gutters >
             <v-col cols="2">
               <v-row no-gutters>
                 <v-col cols="3">
@@ -72,7 +73,6 @@
             </v-col>
             <v-col cols="3">
               <v-card
-
                   tile
                   style="background: none !important; box-shadow: none; float:right; "
               >

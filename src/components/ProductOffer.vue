@@ -4,17 +4,17 @@
         class="mx-auto"
         max-width="240px"
         outlined
-        :href="product.link"
     >
-      <v-img :src="model.getImage(product.id_producto)" width="240" height="224"></v-img>
+
+      <v-img :src="model.getImage(product.prodid)" width="240" height="224"></v-img>
       <v-card-title>
-        S/{{product.id_producto}}
+        S/{{product.preuni}}
 
       </v-card-title>
 
       <v-card-subtitle>
 
-        {{product.nom_prod}}
+        {{product.nompro}}
       </v-card-subtitle>
       <v-card-text>
         {{product.modelo}}

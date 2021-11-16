@@ -2,7 +2,6 @@
   <div style="background-color: #ebebeb">
     <app-bar/>
     <carousel/>
-    <pre>{{data}}</pre>
       <v-container>
           <v-card
             class="mt-5 px-10 "
@@ -120,13 +119,16 @@
       </v-container>
     <v-container>
       <v-card-title>Ofertas</v-card-title>
-      <v-row justify="space-around">
-
+      <v-row>
+        <v-col>
           <product-offer
               v-for="(product,i) in data"
               :key="i"
-              :product="product">
-          </product-offer>
+              :product="product"
+              class="d-inline-flex"
+              justify="space-around"
+              />
+        </v-col>
       </v-row>
     </v-container>
     <v-container class="mt-5">
@@ -244,6 +246,16 @@
           productsStore,
           footerBar
         },
+          productdisc:[
+        {
+          title: 'Compra minima',
+          descrip: 'descrip'
+        },
+        {
+          title: 'Compra minima',
+          descrip: 'descrip'
+        }
+      ],
 
         setup(){
             //Variables
@@ -253,7 +265,7 @@
             //Funciones
 
             async function loadData(){
-                   data.value = await servicioProducts.getProducts(10)
+                   data.value = await servicioProducts.getProducts(5)
             }
 
             onMounted( () => {

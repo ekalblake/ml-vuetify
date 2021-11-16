@@ -16,9 +16,8 @@ export class ServicioProducts {
         return data
     }
 
-    public getImage(id_producto: number){
-        console.log("·····",id_producto)
-        return `${API_PREFIX_MAIN}/product/image/${id_producto}`;
+    public getImage(prodid: number){
+        return `${API_PREFIX_MAIN}/product/image/${prodid}`;
     }
 }
 

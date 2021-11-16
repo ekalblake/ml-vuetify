@@ -6,7 +6,7 @@
           max-width="584px"
           max-height="250px"
           @click="toggle"
-          href="/">
+          >
           <v-row>
             <v-col cols="6" >
                     <v-card-title>

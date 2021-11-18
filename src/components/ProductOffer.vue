@@ -1,25 +1,21 @@
 <template>
   <div>
-    <v-card
-        class="mx-auto"
-        max-width="240px"
-        outlined
-    >
-
-      <v-img :src="model.getImage(product.prodid)" width="240" height="224"></v-img>
-      <v-card-title>
-        S/{{product.preuni}}
-
-      </v-card-title>
-
-      <v-card-subtitle>
-
-        {{product.nompro}}
-      </v-card-subtitle>
-      <v-card-text>
-        {{product.modelo}}
-      </v-card-text>
-    </v-card>
+        <v-card
+            class="mx-auto t1"
+            max-width="240px"
+            hover
+        >
+          <v-img :src="model.getImage(product.prodid)" width="240" height="224"></v-img>
+          <v-card-title>
+            S/{{product.preuni}}
+          </v-card-title>
+          <v-card-subtitle>
+            {{product.nompro}}
+          </v-card-subtitle>
+          <v-card-text class="extend">
+            {{product.modelo}}
+          </v-card-text>
+        </v-card>
   </div>
 </template>
 
@@ -43,3 +39,15 @@ export default defineComponent({
   }
 });
 </script>
+
+<style>
+.extend{
+  display: none;
+}
+
+.v-card:hover .extend{
+  display: block;
+  cursor: pointer;
+  transition: height 1s;
+}
+</style>

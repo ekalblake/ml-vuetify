@@ -10,14 +10,23 @@ export class ServicioProducts {
 
     }
 
+    public async getStores(tipo: number) {
+        const {data} = await axios.get(`${API_PREFIX_MAIN}/stores/${tipo}`)
+        console.log(data)
+        return data
+    }
+
     public async getProducts(tipo: number) {
         const {data} = await axios.get(`${API_PREFIX_MAIN}/products/${tipo}`)
-        console.log(data)
         return data
     }
 
     public getImage(prodid: number){
         return `${API_PREFIX_MAIN}/product/image/${prodid}`;
+    }
+
+    public getImageStore(idstore: number, idtien: number){
+        return `${API_PREFIX_MAIN}/stores/image/${idstore}/${idtien}`;
     }
 }
 

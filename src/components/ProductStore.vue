@@ -1,4 +1,5 @@
 <template>
+  <div>
     <v-card
         class="mx-auto"
         width="240"
@@ -6,7 +7,7 @@
         href="/"
     >
       <v-img
-          :src="pstore.sbackg"
+          :src="model.getImageStore(pstore, 1)"
           height="100px"
       ></v-img>
       <v-list-item-avatar
@@ -15,11 +16,11 @@
           rounded
       >
         <v-img
-            :src="pstore.slogo"
+            :src="pstore.imglog"
         ></v-img>
       </v-list-item-avatar>
       <v-card-title class="justify-center" style="margin-top:-20px">
-        {{pstore.sname}}
+        {{pstore.nomcom}}
       </v-card-title>
       <v-card-subtitle>
         <v-item-group multiple>
@@ -34,7 +35,7 @@
                     class="d-flex align-center"
                     height="70"
                 >
-                  <v-img :src="pstore.sprod1"></v-img>
+                  <v-img :src="pstore.imgex1"></v-img>
                 </v-card>
             </v-col>
             <v-col
@@ -47,7 +48,7 @@
                   class="d-flex align-center"
                   height="70"
               >
-                <v-img :src="pstore.sprod2"></v-img>
+                <v-img :src="pstore.imgex2"></v-img>
               </v-card>
             </v-col>
             <v-col
@@ -60,20 +61,34 @@
                   class="d-flex align-center"
                   height="70"
               >
-                <v-img :src="pstore.sprod3"></v-img>
+                <v-img :src="pstore.impx3"></v-img>
               </v-card>
             </v-col>
-            <a class="grey--text" :href="pstore.slink" style="text-decoration: none;">Ver tienda</a>
+            <span class="grey--text">Ver tienda</span>
           </v-row>
         </v-item-group>
       </v-card-subtitle>
     </v-card>
+  </div>
 </template>
 
 
 <script>
-export default {
+import { defineComponent } from "@vue/composition-api";
+import {servicioProducts} from "@/Services/ServicioProducts";
+
+
+export default defineComponent({
   name : 'productStore',
-  props: ['pstore']
-}
+  props: {
+    pstore: {
+      type : Object
+    }
+  },
+  setup(){
+    return {
+      model: servicioProducts
+    }
+  }
+});
 </script>

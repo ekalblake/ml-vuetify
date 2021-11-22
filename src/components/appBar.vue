@@ -42,7 +42,7 @@
             </v-col>
             <v-col
                 cols="1"
-                md="2"
+                md="3"
 
                 style="display: grid; text-align: center"
               >
@@ -55,36 +55,39 @@
             </v-col>
             <v-col
                 cols="1"
-                md="2"
+                md="1"
             >
               <v-select
                 dense
                 outlined
                 hide-details
-                style="font-size:11px;"
                 class="d-none d-md-block pr-5 float-right"
-                justify="center"
-                align="center"
                 :items="lang"
                 item-text="id"
                 @change="selectLanguage($event)"
+                v-model="e1"
             >
-
+                <template v-slot:selection="{item}">
+                  <v-img :src="item.iconlang" style="width:22px;height:15px"/>
+                </template>
+                <template v-slot:item="{item}">
+                  {{item.title}}
+                </template>
               </v-select>
             </v-col>
 
           </v-row >
           <v-row no-gutters>
-
                 <v-col
                     cols="12"
                     md="2"
-
                     class="align-baseline d-flex pl-3"
-                    style="gap:20px">
+                    style="gap:20px"
+                >
                 <v-btn icon>
-                  <v-icon dark
-                          right
+                  <v-icon
+                      dark
+                      right
                   >
                     mdi-map-marker
                   </v-icon>
@@ -166,7 +169,7 @@
 
 <script lang="ts">
 
-import {defineComponent} from "@vue/composition-api";
+import { defineComponent} from "@vue/composition-api";
 import i18n from "@/plugins/i18n";
 
         export default defineComponent({
@@ -198,13 +201,13 @@ import i18n from "@/plugins/i18n";
           setup(){
             const e1 = 'es';
             const lang = [
-              { id: 'en', title: 'Ingles' },
-              { id: 'es', title: 'Español'}
+              { id: 'es', serial: 0 , title: 'Español', iconlang:'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Catalonia.svg/2560px-Flag_of_Catalonia.svg.png' },
+              { id: 'en', serial: 1, title: 'Ingles', iconlang:'https://www.nicepng.com/png/full/6-63506_usa-png-clipart-american-flag-icon-png.png'}
             ];
 
-            function selectLanguage(language:string) {
-              i18n.locale = language;
-              console.log(language);
+            function selectLanguage(id:string) {
+              i18n.locale = id;
+
             }
 
             return {

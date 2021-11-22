@@ -12,7 +12,6 @@ export class ServicioProducts {
 
     public async getStores(tipo: number) {
         const {data} = await axios.get(`${API_PREFIX_MAIN}/stores/${tipo}`)
-        console.log(data)
         return data
     }
 
@@ -25,8 +24,8 @@ export class ServicioProducts {
         return `${API_PREFIX_MAIN}/product/image/${prodid}`;
     }
 
-    public getImageStore(idstore: number, imgtip: number){
-        console.log(`${API_PREFIX_MAIN}/stores/image/${idstore}/${imgtip}`)
+    public getImageStore(store: number, imgtip: number){
+        return `${API_PREFIX_MAIN}/stores/image/${store}/${imgtip}`
     }
 }
 

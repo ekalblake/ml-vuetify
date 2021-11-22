@@ -1,5 +1,6 @@
 <template>
   <v-hover>
+    <v-item-group>
     <v-item v-slot="{toggle }">
       <v-card
           class="mx-auto"
@@ -9,13 +10,13 @@
           >
           <v-row>
             <v-col cols="6" >
-                    <v-card-title>
-                      Min. de compra S/149
-                    </v-card-title>
-                    <v-card-text>
-                      20% DCTO.ADIC.
-                      CUPÓN: WIZ2021
-                </v-card-text>
+                <v-card-title>
+                  Min. de compra S/149
+                </v-card-title>
+                      <v-card-text>
+                        20% DCTO.ADIC.
+                        CUPÓN: WIZ2021
+                      </v-card-text>
                 <v-card-actions>
                 <v-btn
                     outlined
@@ -32,6 +33,7 @@
           </v-row>
         </v-card>
       </v-item>
+    </v-item-group>
   </v-hover>
 </template>
 
@@ -39,6 +41,10 @@
 <script>
 export default {
   name : 'productDiscounts',
-
+  props: {
+    productdiscs: {
+      type : Object
+    }
+  },
 }
 </script>

@@ -5,7 +5,6 @@
       <v-container >
           <v-card
             class="mt-5 pt-1 pl-2"
-            maxwidth="100%"
             height="90px"
             style="border-left:5px solid #333; border-color: #3483fa"
           >
@@ -29,8 +28,6 @@
                 <span>{{$t('dues')}}</span>
                 <v-btn
                     text
-                    v-bind="attrs"
-                    v-on="on"
                     style="color: #3483fa;text-transform: capitalize; font-weight:normal;"
                     class="px-0 pt-0 "
                 >
@@ -91,7 +88,7 @@
             </v-row>
           </v-card>
       </v-container>
-    <v-container>
+    <v-container fluid>
       <v-card-title>Ofertas</v-card-title>
             <v-slide-group
                 v-model="model"
@@ -119,6 +116,9 @@
     <v-container class="mt-5">
       <v-card-title>Descubre</v-card-title>
 
+      <product-discounts
+
+      />
 
     </v-container>
     <v-container class="mt-5">
@@ -151,10 +151,7 @@
       <v-card-title>Te puede interesar..</v-card-title>
       <v-row
       >
-        <v-col v-for="(disc,i) in productdisc"
-               :key="i"
-               cols="12"
-               md="6"
+        <v-col
         >
           <product-discounts/>
         </v-col>
@@ -246,7 +243,11 @@
           productStore,
           footerBar
         },
-          productdisc:[
+        productdiscs:[
+        {
+          title: 'Compra minima',
+          descrip: 'descrip'
+        },
         {
           title: 'Compra minima',
           descrip: 'descrip'

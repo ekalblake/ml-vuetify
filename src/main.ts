@@ -16,7 +16,7 @@ import vuetify from './plugins/vuetify';
 import router from "./routes";
 
 // Vue i18n plugin
-// import i18n from "./plugins/i18n";
+import i18n from "./plugins/i18n";
 
 // Vue app
 import App from "./App.vue";
@@ -29,6 +29,6 @@ new Vue({
     el: "#app",
     vuetify,
     render: h => h(App),
-    router
-    //i18n
+    router,
+    i18n
 }).$mount("#app");

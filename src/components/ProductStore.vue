@@ -4,10 +4,10 @@
         class="mx-auto"
         width="240"
         height="300"
-        href="/"
+        hover
     >
       <v-img
-          :src="model.getImageStore(pstore, 1)"
+          :src="model.getImageStore(pstore.image, 1)"
           height="100px"
       ></v-img>
       <v-list-item-avatar
@@ -16,7 +16,7 @@
           rounded
       >
         <v-img
-            :src="pstore.imglog"
+            :src="model.getImageStore(pstore.image, 2)"
         ></v-img>
       </v-list-item-avatar>
       <v-card-title class="justify-center" style="margin-top:-20px">
@@ -35,7 +35,7 @@
                     class="d-flex align-center"
                     height="70"
                 >
-                  <v-img :src="pstore.imgex1"></v-img>
+                  <v-img :src="model.getImageStore(pstore, 3)"></v-img>
                 </v-card>
             </v-col>
             <v-col
@@ -48,7 +48,7 @@
                   class="d-flex align-center"
                   height="70"
               >
-                <v-img :src="pstore.imgex2"></v-img>
+                <v-img :src="model.getImageStore(pstore, 4)"></v-img>
               </v-card>
             </v-col>
             <v-col
@@ -61,7 +61,7 @@
                   class="d-flex align-center"
                   height="70"
               >
-                <v-img :src="pstore.impx3"></v-img>
+                <v-img :src="model.getImageStore(pstore, 5)"></v-img>
               </v-card>
             </v-col>
             <span class="grey--text">Ver tienda</span>

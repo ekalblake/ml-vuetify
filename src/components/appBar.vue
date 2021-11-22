@@ -28,34 +28,49 @@
             </v-col>
             <v-col
                 cols="10"
-                md="7"
+                md="6"
             >
               <v-text-field
                   flat
                   solo
                   hide-details
                   dense
-                  label="Buscar productos, marcas y más..."
+                  :label="$t('search_placeholder')"
                   append-icon="mdi-magnify"
               />
 
             </v-col>
             <v-col
                 cols="1"
-                md="3"
+                md="2"
 
                 style="display: grid; text-align: center"
               >
-              <v-img class="d-none d-md-block float-right"
-                     src="https://http2.mlstatic.com/D_NQ_684485-MLA47533161749_092021-OO.webp"
-                     max-width="340"
-                     max-height="39"
-              />
+
                 <v-icon class="float-left d-block d-md-none"
                         large
                 >
                   menu
                 </v-icon>
+            </v-col>
+            <v-col
+                cols="1"
+                md="2"
+            >
+              <v-select
+                dense
+                outlined
+                hide-details
+                style="font-size:11px;"
+                class="d-none d-md-block pr-5 float-right"
+                justify="center"
+                align="center"
+                :items="lang"
+                item-text="id"
+                @change="selectLanguage($event)"
+            >
+
+              </v-select>
             </v-col>
 
           </v-row >
@@ -70,13 +85,12 @@
                 <v-btn icon>
                   <v-icon dark
                           right
-                          small
                   >
                     mdi-map-marker
                   </v-icon>
                 </v-btn>
-                <span  style="font-size:12px; color: rgba(0,0,0,.5);">Enviar a
-                  <span style="font-size: 13px; color: 333;"> Lima Metropolitana</span>
+                <span style="font-size:12px; color: rgba(0,0,0,.5);">{{$t('ship_to')}}
+                  <span style="font-size: 13px; color: #333;"> Lima</span>
                 </span>
                 </v-col>
             <v-col
@@ -87,17 +101,42 @@
 
                 <v-card-text
                     class="d-flex float-right px-0 text--black text-decoration-none pt-5  "
-                    style="gap: 30px; "
+                    style="gap: 20px; "
                 >
-                    <a class="category-color">Categoria
-                    <v-icon x-small>
-                      mdi-arrow-down-bold
-                    </v-icon></a>
-                    <a class="category-color">Ofertas</a>
-                    <a class="category-color">Historial</a>
-                    <a class="category-color">Tiendas Oficiales</a>
-                    <a class="category-color">Vender</a>
-                    <a class="category-color">Ayuda</a>
+                      <v-menu
+                          open-on-hover
+                          origin="center center"
+                          transition="scale-transition"
+                          offset-y
+                      >
+                        <template v-slot:activator="{ on, attrs }">
+                          <a class="category-color"
+                             color="primary"
+                             dark
+                             v-bind="attrs"
+                             v-on="on">
+                            {{$t('category')}}
+                            <v-icon x-small>
+                              mdi-arrow-down-bold
+                            </v-icon>
+                          </a>
+                        </template>
+                        <v-list>
+                          <v-list-item
+                              style="display:flex; flex-direction:column">
+                            <v-list-item-title>Tecnología</v-list-item-title>
+                            <v-list-item-title>Electrodomésticos</v-list-item-title>
+                            <v-list-item-title>Hogar y Muebles</v-list-item-title>
+                            <v-list-item-title>Deporte y Fitness</v-list-item-title>
+                            <v-list-item-title>Belleza y Cuidado Personal</v-list-item-title>
+                          </v-list-item>
+                        </v-list>
+                      </v-menu>
+                    <a class="category-color">{{$t('offers')}}</a>
+                    <a class="category-color d-none d-md-block">{{$t('history')}}</a>
+                    <a class="category-color d-none d-md-block">{{$t('stores')}} </a>
+                    <a class="category-color">{{$t('sell')}}</a>
+                    <a class="category-color">{{$t('help')}}</a>
                 </v-card-text>
 
 
@@ -111,11 +150,11 @@
 
                 <v-card-text
                     class="d-flex float-right px-0 text--black text-decoration-none pt-5"
-                    style="gap:15px"
+                    style="gap:15px; font-size:13px; color: #333333"
                   >
-                  <a class="category-color2">Crea tu cuenta</a>
-                  <a class="category-color2">Ingresa</a>
-                  <a class="category-color2">Mis compras</a>
+                  <a class="category-color2">{{$t('account')}}</a>
+                  <a class="category-color2">{{$t('signin')}}</a>
+                  <a class="category-color2">{{$t('purchases')}}</a>
                 </v-card-text>
 
             </v-col>
@@ -125,9 +164,13 @@
 </template>
 
 
-<script>
-        export default {
-          name: 'homeView',
+<script lang="ts">
+
+import {defineComponent} from "@vue/composition-api";
+import i18n from "@/plugins/i18n";
+
+        export default defineComponent({
+          name: 'appBar',
           computed:
               {
                 cardWidth() {
@@ -150,8 +193,29 @@
                       return '100px'
                   }
                 }
-              }
-        }
+              },
+
+          setup(){
+            const e1 = 'es';
+            const lang = [
+              { id: 'en', title: 'Ingles' },
+              { id: 'es', title: 'Español'}
+            ];
+
+            function selectLanguage(language:string) {
+              i18n.locale = language;
+              console.log(language);
+            }
+
+            return {
+              e1,
+              lang,
+              selectLanguage
+            }
+
+
+          }
+        })
 </script>
 
 <style>

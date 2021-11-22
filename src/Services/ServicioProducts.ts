@@ -25,8 +25,8 @@ export class ServicioProducts {
         return `${API_PREFIX_MAIN}/product/image/${prodid}`;
     }
 
-    public getImageStore(idstore: number, idtien: number){
-        return `${API_PREFIX_MAIN}/stores/image/${idstore}/${idtien}`;
+    public getImageStore(idstore: number, imgtip: number){
+        console.log(`${API_PREFIX_MAIN}/stores/image/${idstore}/${imgtip}`)
     }
 }
 

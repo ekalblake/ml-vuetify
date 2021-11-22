@@ -15,9 +15,9 @@
                   class="d-none d-md-block"
                   md="2"
               >
-                <span>Paga cómodo y seguro</span>
+                <span>{{$t('safe_payment')}}</span>
                 <v-divider dark ></v-divider>
-                <span style="font-size:14px;color: #999;">Con Mercado Pago</span>
+                <span style="font-size:14px;color: #999;">{{$t('safe_payment2')}}</span>
               </v-col>
 
               <v-col
@@ -26,7 +26,7 @@
                   sm="4"
                   xs="6"
               >
-                <span>Hasta 12 cuotas sin interés con:</span>
+                <span>{{$t('dues')}}</span>
                 <v-btn
                     text
                     v-bind="attrs"
@@ -34,7 +34,7 @@
                     style="color: #3483fa;text-transform: capitalize; font-weight:normal;"
                     class="px-0 pt-0 "
                 >
-                  Ver condiciones
+                  {{$t('dues2')}}
                 </v-btn>
 
               </v-col>
@@ -81,9 +81,9 @@
                           xs="6"
 
                       >
-                        <span>Más metodos de pago:</span>
+                        <span>{{$t('payment_method')}}</span>
                         <v-divider dark ></v-divider>
-                        <a href="/" style="color: #3483fa; text-decoration: none; padding: 0">Ver Todos</a>
+                        <a href="/" style="color: #3483fa; text-decoration: none; padding: 0">{{$t('payment_method2')}}</a>
 
                       </v-col>
                    </v-row>
@@ -262,6 +262,7 @@
 
             const dialog : any = ref(false);
             const data : any = ref([]);
+            const pstore : any = ref([]);
             const stores : any = ref([]);
 
             //Funciones
@@ -282,6 +283,7 @@
               dialog,
               data,
               stores,
+              pstore,
               model: servicioProducts
 
             }

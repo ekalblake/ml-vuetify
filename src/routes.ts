@@ -6,22 +6,35 @@ Vue.use(VueRouter);
 
 const routes: RouteConfig[] = [
     {
-        meta: {
-            title: "Login",
-            conditionalRoute:true
-        },
+        path: '*',
+        redirect: '/'
+
+    },
+    {
+        meta: { title: "Login", conditionalRoute:true },
         path: '/',
         name: WebPages.HOME,
-        component: () => import('./App.vue')
+        component: () => import("@/view/homeView.vue")
 
-    }
+    },
+    {
+        meta: { title: "HomeView", conditionalRoute:true },
+        path: '/search',
+        name: WebPages.SEARCHVIEW,
+        components: {
+            default: () => import("@/view/homeView.vue"),
+            toolbar: () => import("@/components/appBar.vue"),
+        }
+    },
+
 ];
 
 /**
  *
  */
 const router = new VueRouter({
-    routes
+    routes,
+    mode: 'history'
 } as any);
 
 

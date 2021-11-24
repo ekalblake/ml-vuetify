@@ -31,13 +31,25 @@
                 md="6"
             >
               <v-text-field
+                  v-model="productname"
                   flat
                   solo
                   hide-details
                   dense
                   :label="$t('search_placeholder')"
-                  append-icon="mdi-magnify"
-              />
+              >
+                <template class="float-right">
+                  <v-btn
+                      height="40"
+                      class="mx-0 mt-6"
+                      color="white"
+                  >
+                    <v-icon center dark>
+                      mdi-magnify
+                    </v-icon>
+                  </v-btn>
+                </template>
+              </v-text-field>
 
             </v-col>
             <v-col
@@ -68,7 +80,7 @@
                 v-model="e1"
             >
                 <template v-slot:selection="{item}">
-                  <v-img :src="item.iconlang" style="width:22px;height:15px"/>
+                  <v-img :src="item.iconlang" style="width:22px;max-height:15px"/>
                 </template>
                 <template v-slot:item="{item}">
                   {{item.title}}
@@ -169,7 +181,7 @@
 
 <script lang="ts">
 
-import { defineComponent} from "@vue/composition-api";
+import { ref, defineComponent} from "@vue/composition-api";
 import i18n from "@/plugins/i18n";
 
         export default defineComponent({
@@ -200,9 +212,12 @@ import i18n from "@/plugins/i18n";
 
           setup(){
             const e1 = 'es';
+
+            const productname =  ref();
+
             const lang = [
-              { id: 'es', serial: 0 , title: 'Español', iconlang:'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Catalonia.svg/2560px-Flag_of_Catalonia.svg.png' },
-              { id: 'en', serial: 1, title: 'Ingles', iconlang:'https://www.nicepng.com/png/full/6-63506_usa-png-clipart-american-flag-icon-png.png'}
+              { id: 'es', title: 'Español', iconlang:'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Catalonia.svg/2560px-Flag_of_Catalonia.svg.png' },
+              { id: 'en', title: 'Ingles', iconlang:'https://www.nicepng.com/png/full/6-63506_usa-png-clipart-american-flag-icon-png.png'}
             ];
 
             function selectLanguage(id:string) {
@@ -213,6 +228,7 @@ import i18n from "@/plugins/i18n";
             return {
               e1,
               lang,
+              productname,
               selectLanguage
             }
 

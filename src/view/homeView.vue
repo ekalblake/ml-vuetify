@@ -76,7 +76,6 @@
                           md="10"
                           sm="9"
                           xs="6"
-
                       >
                         <span>{{$t('payment_method')}}</span>
                         <v-divider dark ></v-divider>

@@ -11,21 +11,24 @@ const routes: RouteConfig[] = [
 
     },
     {
-        meta: { title: "Login", conditionalRoute:true },
+        meta: { title: "Home", conditionalRoute:true },
         path: '/',
         name: WebPages.HOME,
-        component: () => import("@/view/homeView.vue")
+        components:{
+            component: () => import("@/view/homeView.vue"),
+            toolbar: () => import("@/components/appBar.vue")
+        }
 
     },
     {
-        meta: { title: "HomeView", conditionalRoute:true },
-        path: '/search',
-        name: WebPages.SEARCHVIEW,
+        meta: { title: "ProductView", conditionalRoute:true },
+        path: '/product',
+        name: WebPages.PRODUCTVIEW,
         components: {
-            default: () => import("@/view/homeView.vue"),
-            toolbar: () => import("@/components/appBar.vue"),
+            default: () => import("@/view/product/ProductView.vue"),
+            toolbar: () => import("@/components/appBar.vue")
         }
-    },
+    }
 
 ];
 

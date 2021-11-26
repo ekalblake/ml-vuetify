@@ -1,19 +1,21 @@
 <template>
   <v-app>
+    <router-view name="toolbar" />
     <v-main>
-        <home-view/>
+      <router-view :key="$route.fullPath"/>
     </v-main>
+    <footer-bar/>
   </v-app>
 </template>
 
 <script>
-import homeView from '/src/view/homeView.vue'
+import footerBar from '@/components/footerBar.vue'
 
 export default {
   name: 'App',
 
   components: {
-      homeView,
+     footerBar
   },
 
   data: () => ({

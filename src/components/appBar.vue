@@ -31,12 +31,13 @@
                 md="6"
             >
               <v-text-field
-                  v-model="productname"
                   flat
                   solo
                   hide-details
                   dense
                   :label="$t('search_placeholder')"
+                  v-model="txtSearchProduct"
+                  @keyup.enter="onSearch"
               >
                 <template class="float-right">
                   <v-btn
@@ -181,8 +182,9 @@
 
 <script lang="ts">
 
-import { ref, defineComponent} from "@vue/composition-api";
+import { ref, defineComponent, SetupContext } from "@vue/composition-api";
 import i18n from "@/plugins/i18n";
+import { WebPages } from "@/constants";
 
         export default defineComponent({
           name: 'appBar',
@@ -210,26 +212,35 @@ import i18n from "@/plugins/i18n";
                 }
               },
 
-          setup(){
+          setup(_, context: SetupContext){
             const e1 = 'es';
 
-            const productname =  ref();
+            const txtSearchProduct =  ref();
 
             const lang = [
               { id: 'es', title: 'Español', iconlang:'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Catalonia.svg/2560px-Flag_of_Catalonia.svg.png' },
               { id: 'en', title: 'Ingles', iconlang:'https://www.nicepng.com/png/full/6-63506_usa-png-clipart-american-flag-icon-png.png'}
             ];
-
             function selectLanguage(id:string) {
               i18n.locale = id;
 
             }
+            const onSearch = async ()  => {
+              if(txtSearchProduct.value.trim().length <= 0 ) return;
 
+              context.root.$router.push({
+                name: WebPages.PRODUCTVIEW,
+                query: {
+                  nompro: txtSearchProduct.value
+                }
+              }).catch(e => console.log("Error-Navbar: ",e));
+            }
             return {
               e1,
               lang,
-              productname,
-              selectLanguage
+              txtSearchProduct,
+              selectLanguage,
+              onSearch,
             }
 
 

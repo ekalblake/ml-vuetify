@@ -18,7 +18,6 @@ export class ServicioProducts {
     public async getProducts(tipo: number) {
         const {data} = await axios.get(`${API_PREFIX_MAIN}/products/${tipo}`)
         return data
-        console.log(data)
     }
 
     public async searchProducts(nompro: string) {

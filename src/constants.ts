@@ -4,7 +4,7 @@ export enum WebPages {
     LOGIN                       = 'login',
     PRODUCTDETAIL               = 'productDetail',
     PRODUCTCAR                  = 'productCar',
-    SEARCHVIEW                  = 'searchView'
+    PRODUCTVIEW                 = 'product'
 }
 
 export const API_PREFIX_MAIN = process.env.VUE_APP_API_PREFIX;

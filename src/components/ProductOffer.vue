@@ -22,7 +22,7 @@
               <v-card-title
               class="pa-0 pb-3"
               >
-                    S/{{total}}
+                    S/{{product.getDesc()}}
                     <span v-if="product.ofertas != 0"
                           class="green--text pl-2"
                           style="font-size:13px;"
@@ -64,46 +64,24 @@
 </template>
 
 
-<script>
+<script lang="ts">
 import {onMounted, ref, defineComponent } from "@vue/composition-api";
 import {servicioProducts} from "@/Services/ServicioProducts";
+import ProductItemModel from "@/models/product/ProductItemModel";
 
 
 export default defineComponent({
   name : 'productOffer',
   props: {
     product: {
-      type: Object
+      type: Object as () => Array<ProductItemModel>
     }
   },
-  computed:{
-
-  },
-  setup(props){
-    const offer = ref();
-    const total = ref();
+  setup(){
 
 
-    const totaldesc = Math.floor(props.product.preuni - (props.product.preuni * props.product.ofertas/100))
-
-     function offerPrice(){
-      total.value = totaldesc
-    }
-
-     function getOffer(){
-      total.value = totaldesc
-      offer.value = Math.fround(total.value / 12).toFixed(2)
-    }
-
-    onMounted( () =>{
-      getOffer();
-      offerPrice();
-        }
-    )
     return {
-      model: servicioProducts,
-      offer,
-      total,
+      model: servicioProducts
     }
   }
 });

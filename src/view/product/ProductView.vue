@@ -1,5 +1,8 @@
 <template>
-  <product-offer/>
+  <div>
+    test
+  <product-offer :product="productsArr"/>
+  </div>
 </template>
 
 <script lang="ts">

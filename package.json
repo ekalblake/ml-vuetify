@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
@@ -23,7 +25,12 @@
     "vuetify": "^2.2.11"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.10.2",
+    "@storybook/addon-actions": "^6.4.1",
+    "@storybook/addon-essentials": "^6.4.1",
+    "@storybook/addon-links": "^6.4.1",
+    "@storybook/vue": "^6.4.1",
     "@types/lodash": "^4.14.165",
     "@typescript-eslint/eslint-plugin": "^4.8.2",
     "@typescript-eslint/parser": "^4.8.2",
@@ -33,6 +40,7 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.3",
     "copy-webpack-plugin": "^4.6.0",
     "eslint": "^7.30.0",
     "eslint-plugin-prettier": "^3.1.1",

@@ -11,17 +11,15 @@ const routes: RouteConfig[] = [
 
     },
     {
-        meta: { title: "Home", conditionalRoute:true },
         path: '/',
         name: WebPages.HOME,
         components:{
-            component: () => import("@/view/homeView.vue"),
+            default: () => import("@/view/homeView.vue"),
             toolbar: () => import("@/components/appBar.vue")
         }
 
     },
     {
-        meta: { title: "ProductView", conditionalRoute:true },
         path: '/product',
         name: WebPages.PRODUCTVIEW,
         components: {

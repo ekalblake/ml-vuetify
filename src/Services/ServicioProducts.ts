@@ -15,7 +15,7 @@ export class ServicioProducts {
         return data
     }
 
-    public async getProducts(tipo: number) {
+    public  async getProducts(tipo: number) {
         const {data} = await axios.get(`${API_PREFIX_MAIN}/products/${tipo}`)
         return data
     }

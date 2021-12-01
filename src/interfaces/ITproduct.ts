@@ -1,4 +1,4 @@
-export interface ITProduct{
+export default interface ITProduct{
     prodid      : number;
     codpro      : string;
     nompro      : string;

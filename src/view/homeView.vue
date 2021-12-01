@@ -4,14 +4,13 @@
     <main-section/>
   </div>
 </template>
-<script lang="ts">
+<script>
 
     import carousel from '@/components/carousel.vue'
     import MainSection from "@/components/MainSection.vue";
-    import { defineComponent } from "@vue/composition-api";
 
 
-    export default defineComponent({
+    export default{
         name : 'home',
         components :{
           MainSection,
@@ -20,5 +19,5 @@
 
 
 
-    })
+    }
 </script>

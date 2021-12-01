@@ -1,4 +1,4 @@
-import { ITProduct } from "@/interfaces/ITproduct";
+import  ITProduct  from "@/interfaces/ITproduct";
 import { API_PREFIX_MAIN } from "@/constants";
 
 class ProductItemModel{
@@ -87,6 +87,14 @@ class ProductItemModel{
     }
     public getNomven(): string{
         return this.nomven;
+    }
+
+    public getDesc() : number{
+        // @ts-ignore
+        return Math.floor(this.getPreUni - (this.getPreUni * this.getOfertas/100))
+    }
+    public getOfferProd() : string{
+        return Math.fround(this.getDesc() / 12).toFixed(2)
     }
 
 
